@@ -189,7 +189,6 @@ main {
     }
 
     .add-modal {
-        display: none;
         padding: 1rem;
         text-align: center;
         background-color: var(--white);
@@ -200,7 +199,7 @@ main {
         left: 50%;
         width: 300px;
         transform: translate(-50%, -50%) scale(0);
-        transition: 0.2 ease-in-out;
+        transition: .2s ease-in-out;
 
         .close-btn {
             font-size: 1.5rem;
@@ -263,7 +262,6 @@ main {
     }
 
     .add-modal.active {
-        display: block;
         transform: translate(-50%, -50%) scale(1);
     }
 

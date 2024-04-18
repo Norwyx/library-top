@@ -72,8 +72,11 @@ Variables
     --dark-gray: #94a3b8;
     --light-gray: #e6e6e6;
     --blue: #2563eb;
+    --red: #ff9c9c;
+    --green: #9fff9c;
 
     --shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    --card-shadow:rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 
@@ -128,7 +131,62 @@ header {
 }
 
 main {
-    height: 80svh;
+    text-align: center;
+    margin: 4rem auto !important;
+    padding: 0 1rem;
+    gap: 2rem;
+
+    .books-grid {
+        justify-items: center;
+        gap: 2.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            box-shadow: var(--card-shadow);
+            border-radius: 10px;
+            padding: 1.25rem;
+            font-size: 1.25rem;
+            width: 100%;
+
+            .card-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+
+                .card-btn {
+                    background-color: var(--light-gray);
+                    width: 100%;
+                    font-weight: 600;
+                    text-align: center;
+                    border-radius: 5px;
+                    padding: .625rem 4rem;
+                    cursor: pointer;
+                    transition: .2s ease-in-out;
+                }
+
+                .card-btn:hover {
+                    filter: brightness(90%);
+                }
+
+                .green-btn {
+                    background-color: var(--green);
+                }
+                
+                .red-btn {
+                    background-color: var(--red);
+                }
+            }
+        }
+
+        p:first-of-type {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+    }
 
     .add-modal {
         display: none;

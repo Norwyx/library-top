@@ -121,7 +121,6 @@ const addBook = (e) => {
     }
 
     library.addBook(newBook)
-    saveLocal()
     updateBookGrid()
     closeModal()
 }
@@ -135,7 +134,6 @@ const toggleRead = (e) => {
     const book = library.getBook(title)
 
     book.isRead = !book.isRead
-    saveLocal()
     updateBookGrid()
 }
 
@@ -146,7 +144,6 @@ const removeBook = (e) => {
     )
 
     library.removeBook(title)
-    saveLocal()
     updateBookGrid()
 }
 
@@ -161,20 +158,6 @@ const closeModal = () => {
     overlay.classList.remove('active')
     errorMsg.classList.remove('active')
     errorMsg.textContent = ''
-}
-
-const objectPrintFormatter = (toPrint) => {
-    if(toPrint instanceof Set || toPrint instanceof Map) {
-        return JSON.stringify(Object.fromEntries(toPrint));
-    }
-    else if(toPrint instanceof Object) {
-        return JSON.stringify(toPrint);
-    }
-    return toPrint;
-} 
-
-const saveLocal = () => {
-    localStorage.setItem('library', JSON.stringify(objectPrintFormatter(library.books)))
 }
 
 addBtn.onclick = toggleModal

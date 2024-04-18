@@ -215,6 +215,16 @@ main {
             .modal-title {
                 font-size: 2rem;
             }
+            
+            .error-msg {
+                display: none;
+            }
+
+            .error-msg.active {
+                display: block;
+                color: red;
+                font-weight: 700;
+            }
 
             .input {
                 border-radius: 5px;

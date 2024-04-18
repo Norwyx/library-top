@@ -50,6 +50,7 @@ const addModal = document.getElementById('add-modal')
 const form = document.querySelector('.form')
 const overlay = document.querySelector('.overlay')
 const grid = document.getElementById('books-grid')
+const errorMsg = document.querySelector('.error-msg')
 
 const getBookFromInput = () => {
     const title = document.getElementById('title').value
@@ -112,6 +113,13 @@ const createBookCard = (book) => {
 const addBook = (e) => {
     e.preventDefault()
     const newBook = getBookFromInput()
+
+    if (library.inLibrary(newBook)) {
+        errorMsg.textContent = 'This book is already in your library'
+        errorMsg.classList.add('active')
+        return
+    }
+    
     library.addBook(newBook)
     updateBookGrid()
     closeModal()

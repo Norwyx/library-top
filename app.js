@@ -83,6 +83,8 @@ const createBookCard = (book) => {
     cardButtons.classList.add('card-buttons')
     readBtn.classList.add('card-btn')
     deleteBtn.classList.add('card-btn')
+    readBtn.onclick = toggleRead
+    deleteBtn.onclick = removeBook
 
     title.textContent = `"${book.title}"`
     author.textContent = book.author
@@ -113,6 +115,28 @@ const addBook = (e) => {
     library.addBook(newBook)
     updateBookGrid()
     closeModal()
+}
+
+const toggleRead = (e) => {
+    const title = e.target.parentNode.parentNode.firstChild.innerHTML.replaceAll(
+        '"',
+        ''
+    )
+
+    const book = library.getBook(title)
+
+    book.isRead = !book.isRead
+    updateBookGrid()
+}
+
+const removeBook = (e) => {
+    const title = e.target.parentNode.parentNode.firstChild.innerHTML.replaceAll(
+        '"',
+        ''
+    )
+
+    library.removeBook(title)
+    updateBookGrid()
 }
 
 const toggleModal = () => {
